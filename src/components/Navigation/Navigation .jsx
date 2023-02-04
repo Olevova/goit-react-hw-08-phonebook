@@ -54,7 +54,7 @@ export const Navigation = () => {
               <nav>
                 {isLoggedIn ? (
                   <div style={{ display: 'flex', alignItems: 'baseline' }}>
-                    <p>Hi you email: {isUser.email}</p>
+                    <p>Hi your email: {isUser.email}</p>
                     <Button
                       color="inherit"
                       onClick={() => {
