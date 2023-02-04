@@ -1,0 +1,15 @@
+.ulElem {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #1976d2;
+    border-radius: 15px;
+    background-color: #1976d2;
+    color: #f0ffff;
+}
+
+.liElem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
