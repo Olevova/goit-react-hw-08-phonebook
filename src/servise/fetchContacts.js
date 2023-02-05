@@ -9,7 +9,7 @@ export const getContacts = createAsyncThunk('get/contacts', async (_,thunkAPI) =
         // setAuthHeader(data.token);
         return data
     }
-    catch(e) {
+    catch(e) {  
         return thunkAPI.fulfillWithValue (e.message);
     }
 });

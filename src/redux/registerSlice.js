@@ -14,8 +14,7 @@ const registerSlice = createSlice({
         isRefreshing: false,
     },
     extraReducers: builder =>
-        builder
-            .addCase(postRegister.fulfilled, (state, action)=>{
+        builder.addCase(postRegister.fulfilled, (state, action)=>{
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 if (action.payload.token) {
@@ -33,12 +32,17 @@ const registerSlice = createSlice({
                 state.user = { name: null, email: null };
                 state.token = null;
                 state.isLoggedIn = null
+            }).addCase(reFreshUser.pending, state => {
+                     state.isRefreshing = true;
             }).addCase(reFreshUser.fulfilled, (state, action) =>
             {
-                state.user = action.payload.data;
+                state.user = action.payload;
                 state.isLoggedIn = true;
+                state.isRefreshing = false;
                 
-           } )
+           } ).addCase(reFreshUser.rejected, state => {
+                state.isRefreshing = false;
+      })
 });
 
 const persistConfig = {
